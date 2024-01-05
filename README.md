@@ -1,5 +1,5 @@
 
-# C++ Image Enhancement Toolbox
+# C++ Image Enhancement Toolbox using opencv
 
 ## Overview
 
@@ -44,7 +44,7 @@ To get started with the C++ Image Enhancement Toolbox, follow these steps:
 ## Support
 
 If you encounter any issues or have questions, feel free to [open an issue](https://github.com/mariamlaithy/Tool_box/issues).
-using opencv
+
 
 
 
