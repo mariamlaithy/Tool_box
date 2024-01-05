@@ -950,53 +950,7 @@ namespace finaalproject1 {
 	}
 
 	private: System::Void show_button_Click(System::Object^ sender, System::EventArgs^ e) {
-		/*System::Windows::Forms::OpenFileDialog^ openFileDialog1 = gcnew System::Windows::Forms::OpenFileDialog();
-
-		openFileDialog1->Filter = "Image Files (.png;.jpg;.jpeg;.bmp)|.png;.jpg;.jpeg;.bmp|All files (.)|.";
-		openFileDialog1->Title = "Select an Image File";
-
-		if (openFileDialog1->ShowDialog() == System::Windows::Forms::DialogResult::OK) {
-			System::String^ selectedFile = openFileDialog1->FileName;
-
-			const char* filePath = (const char*)(System::Runtime::InteropServices::Marshal::StringToHGlobalAnsi(selectedFile)).ToPointer();
-
-			src = cv::imread(filePath);
-
-			System::Runtime::InteropServices::Marshal::FreeHGlobal(IntPtr((void*)filePath));
-
-			if (!src.empty()) {
-				originalSrc = src.clone();
-				cv::namedWindow("show", cv::WINDOW_NORMAL);
-				cv::imshow("show", src);
-			}
-			else {
-				System::Windows::Forms::MessageBox::Show("Error loading the selected image.", "Error", System::Windows::Forms::MessageBoxButtons::OK, System::Windows::Forms::MessageBoxIcon::Error);
-			}
-		}*/
-		// Assuming usage of OpenFileDialog for file selection
-// and pictureBox1 for displaying the loaded image
-
-		//
-		/*namedWindow("show", 0);
-		imshow("show", src);*/
-	//	std::cout << "Enter the path to the image file: ";
-	//	std::string imagePath;
-	//	std::getline(std::cin, imagePath);
-
-	//	// Read the image from file
-	//	cv::Mat src = cv::imread(imagePath,0);
-
-	//	// Check if the image is loaded successfully
-	//	if (src.empty()) {
-	//		std::cerr << "Error: Could not open or find the image." << std::endl;
-	//		return ;
-	//	}
-
-	//	// Display the image
-	//	cv::imshow("show", src);
-	//	cv::waitKey(0);
-
-	//	return ;
+		
 		System::String^ userInput = p1->Text;
 
 		// Convert the String to a standard C++ string
@@ -1013,8 +967,10 @@ namespace finaalproject1 {
 		}
 		namedWindow("show", 0);
 		imshow("show", src);
-		//cv::Mat dst;
+		
+		
 
+		// for undo
 		//for (int i = 0; i < 2500; ++i) {
 		//	 dst[i] = src.clone(); // Use clone() to create a copy
 		//}
@@ -1274,75 +1230,7 @@ private: System::Void pictureBox1_Click(System::Object^ sender, System::EventArg
 
 }
 private: System::Void ocr_button_Click(System::Object^ sender, System::EventArgs^ e) {
-	//	cv::Mat inputImage = cv::imread("image4.jpg");
-	//
-	//	// Check if the image is loaded successfully
-	//	if (!inputImage.data) {
-	//		std::cerr << "Could not open or find the image." << std::endl;
-	//		return ;
-	//	}
-	//
-	//	// Convert the image to grayscale
-	//	cv::Mat grayImage;
-	//	cv::cvtColor(inputImage, grayImage, cv::COLOR_BGR2GRAY);
-	//
-	//	// Apply Gaussian blur to reduce noise and help with edge detection
-	//	cv::GaussianBlur(grayImage, grayImage, cv::Size(5, 5), 1.5, 1.5);
-	//
-	//	// Use Canny edge detector to find edges in the image
-	//	cv::Mat edges;
-	//	cv::Canny(grayImage, edges, 50, 150);
-	//
-	//	// Find contours in the image
-	//	std::vector<std::vector<cv::Point>> contours;
-	//	cv::findContours(edges, contours, cv::RETR_LIST, cv::CHAIN_APPROX_SIMPLE);
-	//
-	//	// Iterate over the contours to find the rectangular regions (potential license plates)
-	//	for (size_t i = 0; i < contours.size(); i++) {
-	//		cv::Rect boundingBox = cv::boundingRect(contours[i]);
-	//
-	//		// Customize these conditions based on your requirements
-	//		if (boundingBox.width > 100 && boundingBox.height > 20 && boundingBox.width < 500 && boundingBox.height < 200) {
-	//			// Draw a rectangle around the potential license plate
-	//			cv::rectangle(inputImage, boundingBox, cv::Scalar(0, 255, 0), 2);
-	//
-	//			// Crop the region containing the license plate
-	//			cv::Mat licensePlateRegion = inputImage(boundingBox);
-	//
-	//			// Convert the cropped image to grayscale for OCR
-	//			cv::cvtColor(licensePlateRegion, licensePlateRegion, cv::COLOR_BGR2GRAY);
-	//
-	//			// Initialize Tesseract
-	//			tesseract::TessBaseAPI tess;
-	//			tess.Init(NULL, "eng", tesseract::OEM_LSTM_ONLY);  // Replace "eng" with the language code for your trained data
-	//
-	//			// Set image data for OCR
-	//			tess.SetImage(licensePlateRegion.data, licensePlateRegion.cols, licensePlateRegion.rows, 1, licensePlateRegion.cols);
-	//
-	//			// Get OCR result
-	//			char* outText = tess.GetUTF8Text();
-	//
-	//			// Display the OCR result
-	//			std::cout << "License Plate Number: " << outText << std::endl;
-	//
-	//			// Write the OCR result on a separate image
-	//			cv::Mat resultImage = licensePlateRegion.clone();
-	//			cv::putText(resultImage, outText, cv::Point(10, 50), cv::FONT_HERSHEY_SIMPLEX, 1, cv::Scalar(255, 0, 0), 2);
-	//
-	//			// Save the result image
-	//			cv::imwrite("path/to/your/result_image.jpg", resultImage);
-	//
-	//			// Release memory used by Tesseract
-	//			delete[] outText;
-	//			tess.End();
-	//		}
-	//	}
-	//
-	//	// Display the result
-	//	cv::imshow("License Plate Detection", inputImage);
-	//	cv::waitKey(0);
-	//
-	//	return ;
+	
 	std::vector<ContourWithData> allContoursWithData;           // declare empty vectors,
 	std::vector<ContourWithData> validContoursWithData;         // we will fill these shortly
 
@@ -1609,9 +1497,22 @@ private: System::Void high_button_Click(System::Object^ sender, System::EventArg
 
 }
 private: System::Void reset_button_Click(System::Object^ sender, System::EventArgs^ e) {
-	src = imread("2724_Racing-Sport-Vinyl-Decal-Sticker-sport-car-racing-car-bumper-emblem-logo-SILVER_.jpg", 0);
-	namedWindow("show", 0);
-	imshow("show", src);
+	System::String^ userInput = p1->Text;
+
+// Convert the String to a standard C++ string
+std::string userInputString = msclr::interop::marshal_as<std::string>(userInput);
+
+// Load the image using OpenCV
+Mat image = imread(userInputString);
+
+// Check if the image was successfully loaded
+if (!image.empty())
+{
+	// Assuming 'src' is a Mat variable declared earlier
+	src = image.clone();
+}
+namedWindow("show", 0);
+imshow("show", src);
 
 }
 };
