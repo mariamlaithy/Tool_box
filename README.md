@@ -5,6 +5,8 @@
 
 Welcome to the C++ Image Enhancement Toolbox! This toolbox provides a collection of tools for enhancing and modifying images using C++.
 
+![Screenshot (7)](https://github.com/mariamlaithy/Tool_box/assets/109105105/2366fb98-485e-4f79-8832-dd137937e7cb)
+
 ## Features
 
 - **operation:** it can made a lot of operation in image such as translation ,rotation, fliping,zooming and skwieng.
